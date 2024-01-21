@@ -23,7 +23,7 @@ jobs:
     - run: npm install
     - uses: actions/upload-artifact@v2
       with:
-        name: node_modules
+        name: node_modules-${{ matrix.node-version }}
         path: ./node_modules/
 
   build:
@@ -42,7 +42,7 @@ jobs:
     - run: echo "I'm running to build a nodejs app"
     - uses: actions/download-artifact@v2
       with:
-        name: node_modules
+        name: node_modules-${{ matrix.node-version }}
     - run: npm run build --if-present
   # test:
   #   runs-on: ubuntu-latest
