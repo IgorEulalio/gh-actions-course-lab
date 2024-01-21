@@ -24,6 +24,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: echo "I'm running to build a nodejs app"
-    - run: npm ci
+    - run: npm install
     - run: npm run build --if-present
     - run: npm test
