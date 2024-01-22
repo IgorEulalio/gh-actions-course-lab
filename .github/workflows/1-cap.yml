@@ -31,7 +31,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: node_modules-${{ matrix.node-version }}
-        path: ./node_modules/
+        path: .1-cap/node_modules/
 
   build:
     needs: install
