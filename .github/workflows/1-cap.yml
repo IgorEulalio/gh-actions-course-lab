@@ -26,6 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: cd 1-cap
     - run: npm install
     - uses: actions/upload-artifact@v2
       with:
