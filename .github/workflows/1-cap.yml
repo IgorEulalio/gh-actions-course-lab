@@ -2,13 +2,18 @@ name: My node.js CI workflow
 
 on:
   push:
-    branches: [ "main" ]
+    paths:
+      - '1-cap/**'
   pull_request:
-    branches: [ "main" ]
+    paths:
+      - '1-cap/**'
 
 jobs:
   install:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./1-cap
     strategy:
       matrix:
         node-version: [16.x, 18.x]
