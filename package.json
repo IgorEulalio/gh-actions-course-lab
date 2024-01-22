@@ -1,0 +1,23 @@
+{
+  "name": "gh-actions-course-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Build step (not required for this simple app)'",
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "supertest": "^6.3.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
