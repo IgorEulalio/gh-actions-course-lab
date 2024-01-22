@@ -21,7 +21,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: echo "I'm running to install nodejs"
+    - run: ls -alh
     - run: cd 1-cap
+    - run: ls -alh
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
