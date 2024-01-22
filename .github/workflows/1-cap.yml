@@ -8,6 +8,11 @@ on:
     paths:
       - '1-cap/**'
   workflow_dispatch:
+    inputs:
+      log-level:
+        description: 'Log level'
+        required: true
+        default: 'info'
 
 jobs:
   install:
@@ -27,7 +32,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: 1-cap/package-lock.json
-    - run: npm install && ls -lh
+    - name: Install Dependencies
+      run: |
+        LOG_LEVEL=${{ github.event.inputs.log-level || 'info' }}
+        echo "Log level is set to $LOG_LEVEL"
+        npm install --loglevel $LOG_LEVEL
+        ls -lh
     - uses: actions/upload-artifact@v2
       with:
         name: node_modules-${{ matrix.node-version }}
