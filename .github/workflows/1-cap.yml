@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./1-cap
+        working-directory: ./1-cap/
     strategy:
       matrix:
         node-version: [16.x, 18.x]
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./1-cap
+        working-directory: ./1-cap/
     strategy:
       matrix:
         node-version: [16.x, 18.x]
