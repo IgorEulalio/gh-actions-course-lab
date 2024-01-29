@@ -17,7 +17,7 @@ on:
 jobs:
   install:
     outputs:
-      firstworld: ${{ steps.set-output.outputs.firstword }}
+      firstworld: ${{ steps.install.outputs.firstword }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,6 +36,7 @@ jobs:
         cache: 'npm'
         cache-dependency-path: 1-cap/package-lock.json
     - name: Install Dependencies
+      id: install
       run: |
         LOG_LEVEL=${{ github.event.inputs.log-level || 'info' }}
         echo "Log level is set to $LOG_LEVEL"
