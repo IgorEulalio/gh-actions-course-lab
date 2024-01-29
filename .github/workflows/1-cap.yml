@@ -16,6 +16,8 @@ on:
 
 jobs:
   install:
+    outputs:
+      firstworld: ${{ steps.set-output.outputs.firstword }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -38,6 +40,7 @@ jobs:
         LOG_LEVEL=${{ github.event.inputs.log-level || 'info' }}
         echo "Log level is set to $LOG_LEVEL"
         npm install --loglevel $LOG_LEVEL
+        echo "firstword=hello" >> $GITHUB_OUTPUT
     - uses: actions/upload-artifact@v2
       with:
         name: node_modules-${{ matrix.node-version }}
@@ -66,6 +69,7 @@ jobs:
     # - uses: actions/download-artifact@v2
     #   with:
     #     name: node_modules-${{ matrix.node-version }}
+    - run: echo ${{ needs.install.outputs.firstworld }}
     - run: npm run build --if-present
 
   test:
