@@ -42,10 +42,10 @@ jobs:
         echo "Log level is set to $LOG_LEVEL"
         npm install --loglevel $LOG_LEVEL
         echo "firstword=hello" >> $GITHUB_OUTPUT
-    - uses: actions/upload-artifact@v2
-      with:
-        name: node_modules-${{ matrix.node-version }}
-        path: ./1-cap/node_modules/
+    # - uses: actions/upload-artifact@v2
+    #   with:
+    #     name: node_modules-${{ matrix.node-version }}
+    #     path: ./1-cap/node_modules/
 
   build:
     needs: install
